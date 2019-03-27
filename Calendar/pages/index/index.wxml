@@ -1,0 +1,52 @@
+<!--calendar.wxml-->
+<view class="topBar" style="height:80%;">
+    <view class="whichDate">{{toMonth}}月{{toDate}}日</view>
+    <view class="whichYear">
+        <text>{{toYear}}年\n</text>
+        <text>{{fromToday}}</text>
+    </view>
+    <view class="nongliDetail">
+        {{nongliDetail}}
+    </view>
+</view>
+<view class="monthBox" catchtouchend="monthTouch">
+    <view class="weekDay">
+        <view class="week">日</view>
+        <view class="week">一</view>
+        <view class="week">二</view>
+        <view class="week">三</view>
+        <view class="week">四</view>
+        <view class="week">五</view>
+        <view class="week">六</view>
+    </view>
+    <view class="monthDay">
+        <view class="tr" wx:for="{{MonthDayArray}}" wx:key="month">
+            <view id="{{item.num}}" class="day {{item.isShowDayInfo ? 'showDayInfo':'hideDayInfo'}} {{item.isToday ? 'today' : ''}}" wx:for="{{item}}" bindtap="dateClick" wx:key="day">
+                <text class="gongli">{{item.num}}</text>
+                <text class="nongli">{{item.nongli}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- <view>
+      <view wx:for="{{newsList}}" wx:for-index="idx" wx:for-item="tianqi" wx:key="{{index}}">           <view class="weui-media-box__title">{{tianqi.date}}</view>
+        <view class="weui-media-box__title">{{tianqi.weather}}  {{tianqi.temperature}}</view>
+        <view class="weui-media-box__title">{{tianqi.direct}}</view>
+      </view>
+    </view> -->
+
+<view class="weather"> 
+  <text >{{weatherData}}</text> 
+</view>
+
+<view>
+  <view wx:for="{{HuangLi}}" wx:for-index="idx" wx:for-item="HuangLi" wx:key="{{index}}">       
+    <view class="weui-media-box__title">{{HuangLi}}</view>
+  </view>
+  <view wx:for="{{jinDay}}" wx:for-index="idx" wx:for-item="jinDay" wx:key="{{index}}">       
+    <view class="weui-media-box__title">{{jinDay.year}} {{jinDay.title}}</view>
+  </view>
+  
+</view>
+
+</view>
